@@ -1,0 +1,46 @@
+﻿<controls:SLUserControl
+    x:Class="CommonLibSL.Controls.SLDatePicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:CommonLibSL.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    d:DesignHeight="35"
+    d:DesignWidth="200"
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot">
+        <ToolTipService.ToolTip>
+            <TextBlock Text="点击后面的图片选择日期" />
+        </ToolTipService.ToolTip>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="34" />
+        </Grid.ColumnDefinitions>
+        <sdk:DatePicker
+            Name="DatePicker"
+            Grid.Column="0"
+            Width="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Stretch"
+            IsEnabled="False"
+            SelectedDate="{Binding Date, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:SLDatePicker}, Mode=TwoWay}" />
+        <controls:SLTextBox
+            Name="TextBox"
+            Grid.Column="0"
+            Background="White"
+            Cursor="Hand"
+            IsReadOnly="True" />
+        <Image
+            Name="Image"
+            Grid.Column="1"
+            HorizontalAlignment="Right"
+            Cursor="Hand"
+            Source="/ImageResource;component/Images/rili.png"
+            Stretch="None">
+            <ToolTipService.ToolTip>
+                <TextBlock Text="点击选择日期" />
+            </ToolTipService.ToolTip>
+        </Image>
+    </Grid>
+</controls:SLUserControl>

@@ -1,0 +1,16 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vc="clr-namespace:CommonLibSL.Themes.ValueConverter">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="SuperMenuItem.xaml" />
+        <ResourceDictionary Source="ScrollBar.xaml" />
+        <ResourceDictionary Source="ScrollViewer.xaml" />
+        <ResourceDictionary Source="ChildWindow.xaml" />
+        <ResourceDictionary Source="FloatableWindow.xaml" />
+        <ResourceDictionary Source="ScrollBarSmall.xaml" />
+        <ResourceDictionary Source="ScrollViewerSmall.xaml" />
+        <ResourceDictionary Source="GroupBox.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <vc:DateTimeDisplayConverter x:Key="DateTimeFormat" />
+</ResourceDictionary>

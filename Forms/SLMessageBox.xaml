@@ -1,0 +1,26 @@
+﻿<controls:ChildWindow x:Class="CommonLibSL.Forms.SLMessageBox"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="265" Height="152" 
+           Title="MessageBox" FontFamily="Microsoft YaHei">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" BorderBrush="LightGray" BorderThickness="1">
+            <Grid Name="GridContent" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Name="ImageIcon" Source="/ImageResource;component/Images/icon_01.png" Width="30" Height="30" Stretch="None" Grid.Column="0"></Image>
+                <TextBlock Name="TextMessage" Grid.Column="1" Text="消息内容" VerticalAlignment="Center" FontSize="12" TextWrapping="Wrap"></TextBlock>
+            </Grid>
+        </Border>
+
+        <Button x:Name="CancelButton" Content="取消" Click="CancelButton_Click" Width="70" Height="23" HorizontalAlignment="Right" Margin="0,8,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="确定" Click="OKButton_Click" Width="70" Height="23" HorizontalAlignment="Right" Margin="0,8,74,0" Grid.Row="1" />
+    </Grid>
+</controls:ChildWindow>

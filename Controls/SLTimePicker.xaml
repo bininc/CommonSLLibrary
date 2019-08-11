@@ -1,0 +1,42 @@
+﻿<controls:SLUserControl
+    x:Class="CommonLibSL.Controls.SLTimePicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:CommonLibSL.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    d:DesignHeight="35"
+    d:DesignWidth="200"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot">
+        <ToolTipService.ToolTip>
+            <TextBlock Text="点击后面的图片选择时间" />
+        </ToolTipService.ToolTip>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="34" />
+        </Grid.ColumnDefinitions>
+        <toolkit:TimePicker
+            Name="TimePicker"
+            PopupMinutesInterval="10"
+            PopupTimeSelectionMode="AllowSecondsSelection" 
+            Value="{Binding Time, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:SLTimePicker}, Mode=TwoWay}"/>
+        <controls:SLTextBox
+            x:Name="TextBox"
+            Cursor="Hand"
+            IsReadOnly="True" />
+        <Image
+            Name="Image"
+            Grid.Column="1"
+            HorizontalAlignment="Right"
+            Cursor="Hand"
+            Source="/ImageResource;component/Images/shizhong.png"
+            Stretch="None">
+            <ToolTipService.ToolTip>
+                <TextBlock Text="点击选择时间" />
+            </ToolTipService.ToolTip>
+        </Image>
+    </Grid>
+</controls:SLUserControl>

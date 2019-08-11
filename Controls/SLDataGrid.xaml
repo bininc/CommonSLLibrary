@@ -1,0 +1,380 @@
+﻿<controls:SLUserControl
+    x:Class="CommonLibSL.Controls.SLDataGrid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:CommonLibSL.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Themes/ScrollBar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="DataGridStyle1" TargetType="sdk:DataGrid">
+                <Setter Property="RowBackground" Value="#AAEAEFF4" />
+                <Setter Property="AlternatingRowBackground" Value="#00FFFFFF" />
+                <Setter Property="Background" Value="#FFFFFFFF" />
+                <Setter Property="HeadersVisibility" Value="Column" />
+                <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+                <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+                <Setter Property="SelectionMode" Value="Extended" />
+                <Setter Property="CanUserReorderColumns" Value="True" />
+                <Setter Property="CanUserResizeColumns" Value="True" />
+                <Setter Property="CanUserSortColumns" Value="True" />
+                <Setter Property="AutoGenerateColumns" Value="True" />
+                <Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected" />
+                <Setter Property="BorderBrush">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                            <GradientStop Offset="0" Color="#FFA3AEB9" />
+                            <GradientStop Offset="0.375" Color="#FF8399A9" />
+                            <GradientStop Offset="0.375" Color="#FF718597" />
+                            <GradientStop Offset="1" Color="#FF617584" />
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="DragIndicatorStyle">
+                    <Setter.Value>
+                        <Style TargetType="ContentControl">
+                            <Setter Property="Foreground" Value="#7FFFFFFF" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ContentControl">
+                                        <Grid>
+                                            <Rectangle
+                                                x:Name="BackgroundRectangle"
+                                                Grid.ColumnSpan="2"
+                                                Fill="#66808080"
+                                                Stretch="Fill" />
+                                            <Rectangle
+                                                x:Name="BackgroundGradient"
+                                                Grid.ColumnSpan="2"
+                                                Opacity="0"
+                                                Stretch="Fill">
+                                                <Rectangle.Fill>
+                                                    <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                        <GradientStop Offset="0.015" Color="#FFFFFFFF" />
+                                                        <GradientStop Offset="0.375" Color="#F9FFFFFF" />
+                                                        <GradientStop Offset="0.6" Color="#E5FFFFFF" />
+                                                        <GradientStop Offset="1" Color="#C6FFFFFF" />
+                                                    </LinearGradientBrush>
+                                                </Rectangle.Fill>
+                                            </Rectangle>
+                                            <Grid
+                                                Margin="{TemplateBinding Padding}"
+                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition Width="Auto" />
+                                                </Grid.ColumnDefinitions>
+                                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                                <Path
+                                                    x:Name="SortIcon"
+                                                    Grid.Column="1"
+                                                    Width="8"
+                                                    Margin="4,0,0,0"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    Data="F1 M -5.215,6.099L 5.215,6.099L 0,0L -5.215,6.099 Z "
+                                                    Fill="#7FFFFFFF"
+                                                    Opacity="0"
+                                                    RenderTransformOrigin=".5,.5"
+                                                    Stretch="Uniform">
+                                                    <Path.RenderTransform>
+                                                        <ScaleTransform ScaleX=".9" ScaleY=".9" />
+                                                    </Path.RenderTransform>
+                                                </Path>
+                                            </Grid>
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="SortStates">
+                                                    <VisualState x:Name="Unsorted" />
+                                                    <VisualState x:Name="SortAscending">
+                                                        <Storyboard>
+                                                            <DoubleAnimation
+                                                                Storyboard.TargetName="SortIcon"
+                                                                Storyboard.TargetProperty="Opacity"
+                                                                To="1.0"
+                                                                Duration="0" />
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="SortDescending">
+                                                        <Storyboard>
+                                                            <DoubleAnimation
+                                                                Storyboard.TargetName="SortIcon"
+                                                                Storyboard.TargetProperty="Opacity"
+                                                                To="1.0"
+                                                                Duration="0" />
+                                                            <DoubleAnimation
+                                                                Storyboard.TargetName="SortIcon"
+                                                                Storyboard.TargetProperty="(RenderTransform).ScaleY"
+                                                                To="-.9"
+                                                                Duration="0" />
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="DropLocationIndicatorStyle">
+                    <Setter.Value>
+                        <Style TargetType="ContentControl">
+                            <Setter Property="Background" Value="#FF3F4346" />
+                            <Setter Property="Width" Value="2" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ContentControl">
+                                        <Rectangle
+                                            Width="{TemplateBinding Width}"
+                                            Height="{TemplateBinding Height}"
+                                            Fill="{TemplateBinding Background}" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="GridLinesVisibility" Value="Vertical" />
+                <Setter Property="HorizontalGridLinesBrush" Value="#FFC9CACA" />
+                <Setter Property="IsTabStop" Value="True" />
+                <Setter Property="VerticalGridLinesBrush" Value="#FFC9CACA" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="sdk:DataGrid">
+                            <Grid>
+                                <Border
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="2">
+                                    <Grid x:Name="Root" Background="{TemplateBinding Background}">
+                                        <Grid.Resources>
+                                            <ControlTemplate x:Key="TopLeftHeaderTemplate" TargetType="sdk:DataGridColumnHeader">
+                                                <Grid x:Name="Root">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition />
+                                                        <RowDefinition />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Border
+                                                        Grid.RowSpan="2"
+                                                        Background="#FF1F3B53"
+                                                        BorderBrush="#FFC9CACA"
+                                                        BorderThickness="0,0,1,0">
+                                                        <Rectangle Stretch="Fill" StrokeThickness="1">
+                                                            <Rectangle.Fill>
+                                                                <LinearGradientBrush StartPoint=".7,0" EndPoint=".7,1">
+                                                                    <GradientStop Offset="0.015" Color="#FCFFFFFF" />
+                                                                    <GradientStop Offset="0.375" Color="#F7FFFFFF" />
+                                                                    <GradientStop Offset="0.6" Color="#E5FFFFFF" />
+                                                                    <GradientStop Offset="1" Color="#D1FFFFFF" />
+                                                                </LinearGradientBrush>
+                                                            </Rectangle.Fill>
+                                                        </Rectangle>
+                                                    </Border>
+                                                    <Rectangle
+                                                        Grid.RowSpan="2"
+                                                        Width="Auto"
+                                                        Height="1"
+                                                        VerticalAlignment="Bottom"
+                                                        Fill="#FFDBDCDC"
+                                                        StrokeThickness="1" />
+                                                </Grid>
+                                            </ControlTemplate>
+                                            <ControlTemplate x:Key="TopRightHeaderTemplate" TargetType="sdk:DataGridColumnHeader">
+                                                <Grid x:Name="RootElement">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition />
+                                                        <RowDefinition />
+                                                    </Grid.RowDefinitions>
+                                                    <Border
+                                                        Grid.RowSpan="2"
+                                                        Background="#FF2794D2"
+                                                        BorderBrush="#196FAC"
+                                                        BorderThickness="0,0,0,1" />
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Grid.Resources>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <sdk:DataGridColumnHeader
+                                            x:Name="TopLeftCornerHeader"
+                                            Width="22"
+                                            Template="{StaticResource TopLeftHeaderTemplate}" />
+                                        <sdk:DataGridColumnHeadersPresenter x:Name="ColumnHeadersPresenter" Grid.Column="1" />
+                                        <sdk:DataGridColumnHeader
+                                            x:Name="TopRightCornerHeader"
+                                            Grid.Column="2"
+                                            Template="{StaticResource TopRightHeaderTemplate}" />
+                                        <Rectangle
+                                            x:Name="ColumnHeadersAndRowsSeparator"
+                                            Grid.ColumnSpan="3"
+                                            Width="Auto"
+                                            Height="1"
+                                            VerticalAlignment="Bottom"
+                                            Fill="#FFC9CACA"
+                                            StrokeThickness="1" />
+                                        <sdk:DataGridRowsPresenter
+                                            x:Name="RowsPresenter"
+                                            Grid.Row="1"
+                                            Grid.ColumnSpan="2" />
+                                        <Rectangle
+                                            x:Name="BottomRightCorner"
+                                            Grid.Row="2"
+                                            Grid.Column="2"
+                                            Fill="Transparent" />
+                                        <Rectangle
+                                            x:Name="BottomLeftCorner"
+                                            Grid.Row="2"
+                                            Grid.ColumnSpan="2"
+                                            Fill="Transparent" />
+                                        <ScrollBar
+                                            x:Name="VerticalScrollbar"
+                                            Grid.Row="1"
+                                            Grid.Column="2"
+                                            Width="18"
+                                            Margin="0,-1,-1,-1"
+                                            Orientation="Vertical"
+                                            Style="{StaticResource ScrollBarStyle}" />
+                                        <Grid Grid.Row="2" Grid.Column="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Rectangle x:Name="FrozenColumnScrollBarSpacer" />
+                                            <ScrollBar
+                                                x:Name="HorizontalScrollbar"
+                                                Grid.Column="1"
+                                                Height="18"
+                                                Margin="-1,0,-1,-1"
+                                                Orientation="Horizontal"
+                                                Style="{StaticResource ScrollBarStyle}" />
+                                        </Grid>
+                                        <sdk:ValidationSummary
+                                            x:Name="ValidationSummary"
+                                            Grid.Row="3"
+                                            Grid.ColumnSpan="3"
+                                            MaxHeight="90" />
+                                    </Grid>
+                                </Border>
+                                <Border
+                                    x:Name="DisabledVisualElement"
+                                    Width="Auto"
+                                    Height="Auto"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Background="#8CFFFFFF"
+                                    CornerRadius="2"
+                                    IsHitTestVisible="False"
+                                    Opacity="0" />
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="Disabled">
+                                            <Storyboard>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetName="DisabledVisualElement"
+                                                    Storyboard.TargetProperty="Opacity"
+                                                    To="1"
+                                                    Duration="0" />
+                                            </Storyboard>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="DataGridColumnHeaderStyle1" TargetType="sdk:DataGridColumnHeader">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="sdk:DataGridColumnHeader">
+                            <Grid x:Name="Root">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Rectangle
+                                    x:Name="BackgroundGradient"
+                                    Grid.ColumnSpan="2"
+                                    Fill="#FF2794D2"
+                                    Stretch="Fill" />
+                                <Grid
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Margin="{TemplateBinding Padding}"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                </Grid>
+                                <Border BorderBrush="#196FAC" BorderThickness="0,0,0,1" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot">
+        <sdk:DataGrid
+            Name="DataGrid"
+            AutoGenerateColumns="False"
+            BorderThickness="0"
+            ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle1}"
+            IsReadOnly="True"
+            Style="{StaticResource DataGridStyle1}">
+            <sdk:DataGrid.Columns>
+                <sdk:DataGridCheckBoxColumn
+                    Width="Auto"
+                    CanUserReorder="True"
+                    CanUserResize="True"
+                    CanUserSort="True"
+                    Header="绑定A" />
+                <sdk:DataGridCheckBoxColumn
+                    Width="Auto"
+                    CanUserReorder="True"
+                    CanUserResize="True"
+                    CanUserSort="True"
+                    Header="绑定B" />
+                <sdk:DataGridCheckBoxColumn
+                    Width="Auto"
+                    CanUserReorder="True"
+                    CanUserResize="True"
+                    CanUserSort="True"
+                    Header="绑定C" />
+                <sdk:DataGridCheckBoxColumn
+                    Width="Auto"
+                    CanUserReorder="True"
+                    CanUserResize="True"
+                    CanUserSort="True"
+                    Header="绑定D" />
+            </sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+    </Grid>
+</controls:SLUserControl>

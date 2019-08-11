@@ -1,0 +1,79 @@
+﻿<controls:SLUserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:controls="clr-namespace:CommonLibSL.Controls"
+    x:Class="CommonLibSL.Controls.SLTreeView"
+    mc:Ignorable="d"
+    d:DesignHeight="90" d:DesignWidth="200">
+    <UserControl.Resources>
+        <Style x:Name="ItemStyle" TargetType="controls:SLTreeViewItem">
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="IsTabStop" Value="True" />
+            <Setter Property="TabNavigation" Value="Once" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:SLTreeViewItem">
+                        <Grid Background="Transparent" Margin="{TemplateBinding Padding}">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" MinHeight="20">
+                                <Button x:Name="Header" ClickMode="Hover"
+                                    Background="{TemplateBinding Background}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Cursor="{TemplateBinding Cursor}"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch" Margin="3 0"
+                                    FontFamily="{TemplateBinding FontFamily}"
+                                    FontWeight="{TemplateBinding FontWeight}"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    IsTabStop="False" TabNavigation="Once">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+
+                                            <Grid Background="Transparent" >
+                                                <ContentPresenter x:Name="Content" Cursor="{TemplateBinding Cursor}"
+                                                      Content="{TemplateBinding Content}"
+                                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                      HorizontalAlignment="Stretch"
+                                                      VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                    <Button.Content>
+                                        <Grid Background="Transparent" >
+                                            <ContentPresenter Content="{TemplateBinding Header}" ContentTemplate="{TemplateBinding HeaderTemplate}"/>
+                                        </Grid>
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" Margin="0">
+        <sdk:TreeView Name="tv" BorderThickness="0" Background="Transparent" Padding="0" Margin="-6 -9 -18 4">
+            <ToolTipService.ToolTip>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="车辆图标:"/>
+                    <TextBlock Text="灰色:不在线"/>
+                    <TextBlock Text="银色:不定位"/>
+                    <TextBlock Text="黄色:停车中"/>
+                    <TextBlock Text="绿色:行驶中"/>
+                    <TextBlock Text="红色:报警中"/>
+                </StackPanel>
+            </ToolTipService.ToolTip>
+            <controls:SLTreeViewItem Text="单位列表加载中..."/>
+        </sdk:TreeView>
+    </Grid>
+</controls:SLUserControl>

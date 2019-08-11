@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B12CF233-1C41-492A-A66D-C7A7DB897ADA}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonLibSL</RootNamespace>
+    <AssemblyName>CommonLibSL</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <IntermediateOutputPath>C:\Users\Bininc\AppData\Local\Temp\vs91A8.tmp\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <IntermediateOutputPath>C:\Users\Bininc\AppData\Local\Temp\vs91A8.tmp\Release\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FloatableWindow">
+      <HintPath>..\..\Lib\FloatableWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="Lite.ExcelLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Lite.ExcelLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl, Version=1.0.1.0, Culture=neutral, PublicKeyToken=498d0d22d7936b73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Microsoft.Maps.MapControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.Common, Version=1.0.1.0, Culture=neutral, PublicKeyToken=498d0d22d7936b73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\Microsoft.Maps.MapControl.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\System.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Lib\System.Windows.Controls.Data.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Lib\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\Lib\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Browser.cs" />
+    <Compile Include="ComboBoxColor.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Controls\GroupBox.cs" />
+    <Compile Include="Controls\SLListBox.xaml.cs">
+      <DependentUpon>SLListBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SLTreeView2.xaml.cs">
+      <DependentUpon>SLTreeView2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SLTreeView2Data.cs" />
+    <Compile Include="Controls\SLUserControl.cs" />
+    <Compile Include="Controls\SLWrapPanel.xaml.cs">
+      <DependentUpon>SLWrapPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SuperMenuItemData.cs" />
+    <Compile Include="EnumClass.cs" />
+    <Compile Include="ExcelHelper.cs" />
+    <Compile Include="Forms\FloatabledWindow.cs" />
+    <Compile Include="Forms\FormWindow.cs" />
+    <Compile Include="Controls\ImageButton.xaml.cs">
+      <DependentUpon>ImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\IPage.cs" />
+    <Compile Include="Controls\LinkButton.xaml.cs">
+      <DependentUpon>LinkButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IsolatedStorageManager.cs" />
+    <Compile Include="LocalConfig.cs" />
+    <Compile Include="Map\MapAdjust.cs" />
+    <Compile Include="Map\MapCar.cs" />
+    <Compile Include="Map\MapCarInfo.xaml.cs">
+      <DependentUpon>MapCarInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Map\MapCarInfoItem.xaml.cs">
+      <DependentUpon>MapCarInfoItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Map\MapDrawTool.cs" />
+    <Compile Include="Map\MapLayer.cs" />
+    <Compile Include="Map\MapMode.cs" />
+    <Compile Include="Map\MapTileSource.cs" />
+    <Compile Include="Model\SLCar.cs" />
+    <Compile Include="Controls\SLCheckBox.xaml.cs">
+      <DependentUpon>SLCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SLDataGrid.xaml.cs">
+      <DependentUpon>SLDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SLDatePicker.xaml.cs">
+      <DependentUpon>SLDatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Map\SLMapControl.xaml.cs">
+      <DependentUpon>SLMapControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SLTextBox.xaml.cs">
+      <DependentUpon>SLTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SLImageInfo.cs" />
+    <Compile Include="Model\SLInspectionInfo.cs" />
+    <Compile Include="Model\SLLcvActionLog.cs" />
+    <Compile Include="Model\SLLcvAlarm.cs" />
+    <Compile Include="Model\SLLockGpsData.cs" />
+    <Compile Include="Forms\SLMessageBox.xaml.cs">
+      <DependentUpon>SLMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SLParameterInfo.cs" />
+    <Compile Include="Model\SLVtrData.cs" />
+    <Compile Include="MouseWheelTool.cs" />
+    <Compile Include="MyExtensions.cs" />
+    <Compile Include="Map\OfflineMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controls\SLPage.cs" />
+    <Compile Include="Controls\SLTimePicker.xaml.cs">
+      <DependentUpon>SLTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SLMessage.cs" />
+    <Compile Include="SLCookieHelper.cs" />
+    <Compile Include="SocketLib\SLSocket.cs" />
+    <Compile Include="SocketLib\SLSocketAsyncEventArgs.cs" />
+    <Compile Include="SocketLib\TCPClient.cs" />
+    <Compile Include="Controls\SuperMenu.cs" />
+    <Compile Include="Controls\SuperMenuItem.cs" />
+    <Compile Include="Themes\ThemeManger.cs" />
+    <Compile Include="Themes\ValueConverter\DateTimeDisplayConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\ImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LinkButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SLListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SLTreeView2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SLWrapPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Map\MapCarInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SLCheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SLDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Map\MapCarInfoItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Map\SLMapControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\SLMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SLDatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SLTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SLTimePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ChildWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\FloatableWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\GroupBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ScrollBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ScrollBarSmall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ScrollViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ScrollViewerSmall.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SuperMenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\gnss\gnss\CrossAppLib\CrossAppLib.csproj">
+      <Project>{aa51262d-3d00-460e-a9f6-9adde576e22f}</Project>
+      <Name>CrossAppLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\gnss\gnss\ImageResource\ImageResource.csproj">
+      <Project>{0729e62d-f673-46f8-8ce1-83c2a3d043d9}</Project>
+      <Name>ImageResource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\gnss\Models\Models.csproj">
+      <Project>{2e3b8c76-fe18-40d1-bb39-9f83c60368d8}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommLiby\CommLiby\CommLiby.csproj">
+      <Project>{1420f78b-19c4-4617-a9be-4168992c641e}</Project>
+      <Name>CommLiby</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

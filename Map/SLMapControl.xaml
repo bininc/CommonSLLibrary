@@ -1,0 +1,46 @@
+﻿<UserControl
+    x:Class="CommonLibSL.Map.SLMapControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:map="clr-namespace:CommonLibSL.Map"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="500"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot">
+        <map:OfflineMap Name="map" >
+            <map:MapLayer Name="mapLayerCarLine" />
+            <map:MapLayer Name="mapLayerCustomPoint" />
+            <map:MapLayer Name="mapLayerDraw" />
+            <map:MapLayer Name="mapLayerCar" />
+        </map:OfflineMap>
+        <StackPanel
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Orientation="Horizontal">
+            <Border
+                Padding="3,0,0,0"
+                Background="#86000000"
+                CornerRadius="0 0 0 8">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton
+                        Name="roadMode"
+                        VerticalAlignment="Center"
+                        Content="普通模式"
+                        Cursor="Hand"
+                        Foreground="White"
+                        IsChecked="True" />
+                    <RadioButton
+                        Name="aerialMode"
+                        VerticalAlignment="Center"
+                        Content="卫星模式"
+                        Cursor="Hand"
+                        Foreground="White" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>
+
